@@ -1,73 +1,116 @@
-# React + TypeScript + Vite
+# Prami Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web desarrollada con React + TypeScript y Vite que implementa una interfaz moderna para explorar cursos, continuar viendo lecciones y visualizar el progreso de aprendizaje. El proyecto utiliza Tailwind CSS para estilos utilitarios, React Router para el ruteo, y librerías de visualización como Recharts y react-circular-progressbar, además de Swiper para carruseles.
 
-Currently, two official plugins are available:
+## Tabla de contenidos
+- Características
+- Tecnologías
+- Requisitos
+- Instalación y ejecución
+- Scripts disponibles
+- Estructura del proyecto
+- Estándares de código
+- Construcción y despliegue
+- Preguntas frecuentes (FAQ)
+- Contribuir
+- Licencia
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características
+- Listado de cursos con tarjetas (CourseCard) y acciones rápidas.
+- Sección "Continue Watching" para reanudar lecciones.
+- Listado de progreso por curso (CourseProgressList) con insignias de avance (ProgressBadge).
+- Tabla de lecciones (LessonTable y LessonTableRow) con estado de visualización.
+- Estilos modernos con Tailwind CSS 4.
+- Iconografía con lucide-react.
+- Gráficas y progreso con Recharts y react-circular-progressbar.
+- Carruseles y sliders con Swiper.
 
-## React Compiler
+## Tecnologías
+- React 19 + TypeScript
+- Vite 7 (dev server y build)
+- Tailwind CSS 4
+- React Router DOM 7
+- Recharts, react-circular-progressbar
+- Swiper
+- ESLint (typescript-eslint, react hooks, react refresh)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Requisitos
+- Node.js 18 o superior (recomendado 20+)
+- npm 9+ o pnpm/yarn (el proyecto usa npm por defecto)
 
-## Expanding the ESLint configuration
+## Instalación y ejecución
+1. Clonar el repositorio:
+   git clone <URL_DEL_REPO>
+   cd prami-test
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+2. Instalar dependencias:
+   npm install
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+3. Ejecutar en desarrollo (HMR):
+   npm run dev
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+4. Abrir en el navegador:
+   La terminal mostrará la URL (por defecto http://localhost:5173).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Scripts disponibles
+- npm run dev: Inicia el servidor de desarrollo de Vite.
+- npm run build: Compila TypeScript y genera el build de producción.
+- npm run preview: Sirve localmente el build de producción para verificación.
+- npm run lint: Ejecuta ESLint sobre el proyecto.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Estructura del proyecto
+- index.html: Documento raíz de la app Vite.
+- src/
+  - main.tsx: Entrada de la aplicación React.
+  - index.css: Estilos globales (incluye Tailwind).
+  - theme/
+    - colors.ts: Paleta de colores y constantes de tema.
+  - components/
+    - ui/
+      - CourseCard.tsx
+      - IconButton.tsx
+      - LessonTableRow.tsx
+      - ProgressBadge.tsx
+    - widgets/
+      - ContinueWatching.tsx
+      - CourseProgressList.tsx
+      - LessonTable.tsx
+- public/: Recursos estáticos (si aplica).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Nota: Puedes extender esta estructura creando rutas con React Router y añadiendo páginas en una carpeta src/pages.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Estándares de código
+- Lenguaje: TypeScript estricto.
+- Linter: ESLint con typescript-eslint y reglas para hooks.
+- Estilos: Tailwind CSS (clases utilitarias); procura mantener componentes pequeños y reutilizables en components/ui y components/widgets.
+- Convenciones de commits: se recomienda Conventional Commits (feat, fix, docs, refactor, chore, etc.).
+
+## Construcción y despliegue
+1. Build de producción:
+   npm run build
+   Esto genera la carpeta dist/ lista para desplegar.
+
+2. Previsualización local del build:
+   npm run preview
+
+3. Despliegue:
+   - Opción 1: Servidores estáticos (Netlify, Vercel, GitHub Pages) sirviendo dist/.
+   - Opción 2: Cualquier hosting que soporte contenido estático. Asegúrate de configurar el reescritura de rutas para React Router (fallback a index.html).
+
+## Preguntas frecuentes (FAQ)
+- ¿Cómo cambio la paleta de colores?
+  Edita src/theme/colors.ts y actualiza clases Tailwind en los componentes.
+
+- ¿Dónde agrego nuevas secciones o páginas?
+  Crea componentes en src/components y páginas en src/pages, registra las rutas en React Router desde main.tsx o el layout principal.
+
+- ¿Puedo usar otra librería de gráficos?
+  Sí, pero Recharts ya está configurada en dependencias; instala y configura la alternativa según necesidad.
+
+## Contribuir
+- Crea un branch desde main.
+- Asegúrate de que npm run lint no reporte errores antes de abrir un PR.
+- Incluye capturas o GIFs si tu cambio afecta la UI.
+
+## Licencia
+Este proyecto no declara una licencia explícita. Si planeas hacerlo público, se recomienda añadir una licencia (por ejemplo, MIT) en un archivo LICENSE.
