@@ -19,7 +19,7 @@ export default function ProgressBadge({ icon, title, watched, total, color }: Pr
                     icon={icon}
                 />
                 <div className="flex-1 lg:flex-none">
-                    <p className="text-xs lg:text-sm font-semibold text-gray-600">{watched}/{total} watched</p>
+                    <p className="text-xs lg:text-sm font-semibold text-gray-400">{watched}/{total} watched</p>
                     <p className="text-base lg:text-lg font-bold text-gray-900">{title}</p>
                 </div>
             </div>

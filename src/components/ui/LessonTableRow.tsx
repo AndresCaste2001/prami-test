@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import { Play } from 'lucide-react';
+import { MoveUpRight } from 'lucide-react';
 import Avatar from './Avatar';
 import IconButton from './IconButton';
 import { getCategoryColor } from '../../theme/colors';
@@ -33,24 +33,26 @@ export default function LessonTableRow({ mentor, category, icon: Icon, descripti
 
             {/* Type/Category */}
             <td className="py-4 px-4">
-                <div className={`flex ${bg} p-1 px-3 w-fit rounded-full items-center gap-2`}>
+                <div className={`flex ${bg} p-1 px-3 w-fit mx-auto rounded-full items-center gap-2`}>
                     <Icon size={14} className={text} />
                     <span className={`text-xs font-semibold uppercase ${text}`}>{category}</span>
                 </div>
             </td>
 
             {/* Description */}
-            <td className="py-4 px-4">
-                <p className="text-sm text-gray-700">{description}</p>
+            <td className="text-center py-4 px-4">
+                <p className="text-md font-bold text-gray-700">{description}</p>
             </td>
 
             {/* Action */}
             <td className="py-4 px-4">
-                <IconButton
-                    size="md"
-                    className="border-primary"
-                    icon={<Play size={16} className="text-primary" fill="#6e63e4" />}
-                />
+                <div className="flex justify-center">
+                    <IconButton
+                        size="sm"
+                        className="border-primary"
+                        icon={<MoveUpRight size={16} className="text-primary" fill="#6e63e4" />}
+                    />
+                </div>
             </td>
         </tr>
     );
