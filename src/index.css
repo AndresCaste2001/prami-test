@@ -57,3 +57,89 @@
     background-color: #9ca3af;
 }
 
+/* Dark mode utilities */
+:root {
+    color-scheme: light;
+}
+
+:root.dark {
+    color-scheme: dark;
+}
+
+.dark {
+    --tw-bg-opacity: 1;
+}
+
+/* Dark mode overrides */
+.dark .bg-gray-50 {
+    background-color: var(--color-dark-bg);
+}
+
+.dark .bg-white {
+    background-color: var(--color-dark-surface);
+}
+
+.dark .hover\:bg-gray-50:hover {
+    background-color: var(--color-dark-surface-hover);
+}
+
+.dark .hover\:bg-white:hover {
+    background-color: var(--color-dark-surface);
+}
+
+.dark .bg-white\/80 {
+    background-color: rgba(30, 41, 59, 0.8);
+}
+
+.dark .text-gray-900,
+.dark .text-gray-800,
+.dark .text-gray-700,
+.dark .text-gray-600 {
+    color: var(--color-dark-text);
+}
+
+.dark .text-gray-500,
+.dark .text-gray-400 {
+    color: var(--color-dark-text-secondary);
+}
+
+.dark .border-gray-300,
+.dark .border-gray-200 {
+    border-color: var(--color-dark-border);
+}
+
+.dark .divide-gray-200 > * + * {
+    border-color: var(--color-dark-border);
+}
+
+.dark .placeholder\:text-gray-400::placeholder {
+    color: var(--color-dark-text-secondary);
+}
+
+.dark input,
+.dark .bg-transparent {
+    color: var(--color-dark-text);
+}
+
+.dark .shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Chart dark mode */
+.dark .recharts-cartesian-grid line {
+    stroke: var(--color-dark-border);
+}
+
+.dark .recharts-text {
+    fill: var(--color-dark-text-secondary);
+}
+
+/* Specific component overrides */
+.dark .bg-\[\#ebeafc\] {
+    background-color: rgba(110, 99, 228, 0.2);
+}
+
+.dark .bg-gray-200 {
+    background-color: var(--color-dark-surface-hover);
+}
+

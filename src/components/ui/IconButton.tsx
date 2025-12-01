@@ -18,7 +18,7 @@ export default function IconButton({ icon, onClick, size = 'lg', className}: Ico
     return (
         <div
             onClick={onClick}
-            className={`rounded-full border border-gray-300 flex flex-shrink-0 items-center justify-center cursor-pointer active:scale-110 transition ${className} ${sizeMap[size]}`}
+            className={`rounded-full border border-gray-300 bg-white flex flex-shrink-0 items-center justify-center cursor-pointer active:scale-110 transition ${className} ${sizeMap[size]}`}
         >
             {icon}
         </div>

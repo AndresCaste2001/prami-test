@@ -1,9 +1,12 @@
-import {Search, Mail, Bell} from 'lucide-react';
-import { CURRENT_USER} from "../../data/mockData";
+import { Search, Mail, Bell, Moon, Sun } from 'lucide-react';
+import { CURRENT_USER } from "../../data/mockData";
 import IconButton from "../ui/IconButton";
 import Avatar from "../ui/Avatar";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Header() {
+    const { isDark, toggleTheme } = useTheme();
+
     return(
         <header className=" bg-gray-50 px-4 lg:px-8 py-3 lg:py-7">
             <div className="flex items-center justify-between gap-3 lg:gap-6">
@@ -29,6 +32,11 @@ export default function Header() {
 
                 {/* Right - Icons & Profile */}
                 <div className="flex items-center gap-3 lg:gap-7 ml-auto mr-0 lg:mr-10">
+                    <IconButton 
+                        size="xl" 
+                        icon={isDark ? <Sun size={16} className="text-yellow-400" /> : <Moon size={16} className="text-gray-600" />}
+                        onClick={toggleTheme}
+                    />
                     <IconButton size="xl" icon={<Mail fill="gray" size={16} className="text-gray-600" />}/>
                     <IconButton size="xl" icon={<Bell fill="gray" size={16} className="text-gray-600" />}/>
 
