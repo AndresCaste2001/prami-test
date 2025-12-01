@@ -1,3 +1,59 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #6e63e4;
+    --color-secondary: #d3d0f3;
+
+    /* Dark mode colors */
+    --color-dark-bg: #0f172a;
+    --color-dark-surface: #1e293b;
+    --color-dark-surface-hover: #334155;
+    --color-dark-border: #334155;
+    --color-dark-text: #f1f5f9;
+    --color-dark-text-secondary: #94a3b8;
+}
+
+.sidebar-section-title {
+    @apply mt-22 mb-3 text-sm text-gray-400 uppercase;
+}
+
+.sidebar-nav {
+    @apply flex flex-col gap-5;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.divide-dashed > * + * {
+    border-top-style: dashed;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Pretty scrollbar */
+.scrollbar-thin {
+    scrollbar-width: thin;
+    scrollbar-color: #d1d5db transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+    background-color: #d1d5db;
+    border-radius: 3px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background-color: #9ca3af;
+}
+
