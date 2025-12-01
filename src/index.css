@@ -98,6 +98,24 @@
     color: var(--color-dark-text);
 }
 
+/* Excluir elementos con esta clase del cambio de color en dark mode */
+.dark .dark-preserve-color .text-gray-600 {
+    color: #4b5563 !important;
+}
+
+.dark .dark-preserve-color .text-gray-500 {
+    color: #6b7280 !important;
+}
+
+.dark .dark-preserve-color .text-gray-400 {
+    color: #9ca3af !important;
+}
+
+/* Preservar color de iconos SVG sin clase de color explícita */
+.dark .dark-preserve-color svg {
+    color: inherit !important;
+}
+
 .dark .text-gray-500,
 .dark .text-gray-400 {
     color: var(--color-dark-text-secondary);

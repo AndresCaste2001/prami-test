@@ -9,7 +9,7 @@ export default function CourseProgressList() {
                 return (
                     <ProgressBadge
                         key={course.id}
-                        icon={<IconComponent size={24} />}
+                        icon={<IconComponent size={24} className="text-gray-800" />}
                         title={course.category}
                         watched={course.watched}
                         total={course.total}
